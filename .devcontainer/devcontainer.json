@@ -6,6 +6,33 @@
     "image": "mcr.microsoft.com/devcontainers/ruby:0-3-bullseye",
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": true,
+            "upgradePackages": true,
+            // Override name of a non-root user to configure or none to skip
+            // "username": "vscode",
+            // Override UID of non-root user
+            // "userUid": "1000",
+            // Override GID for non-root user
+            // "userGid": "1000",
+            // Add packages from non-free Debian repository? (Debian only)
+            "nonFreePackages": false
+        },
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+            "version": "20.10.23",
+            "moby": "true",
+            "dockerDashComposeVersion": "v2"
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "18.15.0",
+            // Install dependencies to compile native node modules (node-gyp)
+            "nodeGypDependencies": true,
+            // The path where NVM will be installed.
+            "nvmInstallPath": "/usr/local/share/nvm",
+            "nvmVersion": "0.39.3"
+        },
         "ghcr.io/devcontainers/features/python:1": {
             "version": "3.9.2",
             // Install common Python tools like pylint
@@ -19,6 +46,10 @@
             // Configure JupyterLab to accept HTTP requests from the specified origin
             // "configureJupyterlabAllowOrigin": ""
         }
+        // FIXME: broken, use base image ruby:0-3-bullseye as a workaround
+        // "ghcr.io/devcontainers/features/ruby:1": {
+        //     "version": "3.2.1"
+        // }
     }
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
